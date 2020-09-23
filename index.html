@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AQI Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="header p-5 text-center display-5">AQI CALCULATOR</div>
+        <div class="conc-input">
+          <form id="input-form" class="mb-3">
+            <div class="row mb-5 justify-content-center">
+              <div class="col-md-4">
+                <select class="form-select select-option">
+                  <option value="annual">Annual</option>
+                  <option value="hour">24 hours</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <label for="pm" class="form-label"
+                  >PM2.5 - Particulate &lt 2.5 &micro;</label
+                >
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    id="pm"
+                    class="form-control"
+                    placeholder="Enter the Concentration"
+                    aria-label="Enter the Concentration"
+                    aria-describedby="ug"
+                  />
+                  <span class="input-group-text" id="ug"
+                    >&micro;g/m<sup>3</sup></span
+                  >
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="so2" class="form-label">SO2 - Sulfur Dioxide</label>
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    id="so2"
+                    class="form-control"
+                    placeholder="Enter the Concentration"
+                    aria-label="Enter the Concentration"
+                    aria-describedby="ug"
+                  />
+                  <span class="input-group-text" id="ug"
+                    >&micro;g/m<sup>3</sup></span
+                  >
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="no2" class="form-label"
+                  >NO2 - Nitrogen Dioxide</label
+                >
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    id="no2"
+                    class="form-control"
+                    placeholder="Enter the Concentration"
+                    aria-label="Enter the Concentration"
+                    aria-describedby="ug"
+                  />
+                  <span class="input-group-text" id="ug"
+                    >&micro;g/m<sup>3</sup></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="text-center m-3">
+              <div class="btn-group">
+                <button
+                  type="submit"
+                  value="calculate"
+                  name="calculate"
+                  class="btn btn-primary calculate"
+                >
+                  Calculate
+                </button>
+                <button
+                  type="reset"
+                  value="reset"
+                  name="reset"
+                  class="btn btn-primary"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="aqi-output">
+          <form id="output-form">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="aqi-result" class="form-label">AQI</label>
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    id="aqi-result"
+                    class="form-control text-center"
+                    name="aqi"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="aqi-category" class="form-label"
+                  >AQI Category</label
+                >
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    id="aqi-category"
+                    class="form-control text-center"
+                    name="aqi-category"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="SensitiveGroups">Sensitive Groups</label
+                  ><textarea
+                    class="form-control text-center"
+                    id="sensitive-groups"
+                    name="TextSensitive"
+                    rows="4"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="HealthEffectsStatements"
+                    >Health Effects Statements</label
+                  ><textarea
+                    class="form-control text-center"
+                    id="health-effects"
+                    name="HealthEffects"
+                    rows="4"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="CautionaryStatements">Cautionary Statements</label
+                  ><textarea
+                    class="form-control text-center"
+                    id="cautionary-statements"
+                    name="Cautionary"
+                    rows="4"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
