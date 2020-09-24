@@ -4,12 +4,25 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: gray;
+  font-family: "Montserrat", sans-serif;
+}
 .btn-group button {
   border-color: #1a5cc0;
 }
-body {
-  background-color: gray;
-}
 .container {
   background-color: rgb(196, 188, 188);
+  min-height: 100vh;
+}
+.form-control,
+.form-select {
+  border: 1px solid black;
+}
+label {
+  color: black;
+  font-weight: bold;
+}
+.aqi-table {
+  display: none;
 }
