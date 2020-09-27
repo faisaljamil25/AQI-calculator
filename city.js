@@ -11,6 +11,13 @@ const resetBtn = document.querySelector(".reset-btn")
 const cityName = document.querySelector("#city-name")
 let pollutants;
 
+function capital_letter(str) {
+    str = str.split(" ");
+    for (let i = 0, x = str.length; i < x; i++) {
+        str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+    }
+    return str.join(" ");
+}
 async function cityAqi(url) {
     const response = await fetch(url);
     var data = await response.json();
@@ -18,7 +25,7 @@ async function cityAqi(url) {
     if (data.status === "ok") {
         const aqi = data.data.aqi
         if (aqi) {
-            cityName.innerText = "hello"
+            cityName.innerText = capital_letter(city.value)
             pollutants = data.data.iaqi
             addPollutant(pollutants)
             aqiResult.style.color = 'black'
