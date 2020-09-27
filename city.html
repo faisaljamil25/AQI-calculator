@@ -20,74 +20,47 @@
     <main>
       <div class="container text-center">
         <div class="header p-5 text-center display-5">AQI CALCULATOR</div>
-        <div class="conc-input">
-          <form id="input-form" class="mb-3">
-            <div class="row">
-              <label for="pollutants" class="text-left mb-1"
-                >Select a Pollutant</label
-              >
-              <div class="col-md-8 mb-3">
-                <select class="form-select select-option" id="pollutants">
-                  <option value="PM2.5">
-                    PM2.5 - Particulate &lt 2.5 &micro; (24 hrs)
-                  </option>
-                  <option value="SO2">SO2 - Sulfur Dioxide (24 hrs)</option>
-                  <option value="NO2">NO2 - Nitrogen Dioxide (24 hrs)</option>
-                </select>
+        <form id="city-form">
+          <div class="row">
+            <div class="col-md-4 m-auto">
+              <label for="city-input" class="form-label">Enter City Name</label>
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  id="city-input"
+                  class="form-control text-center"
+                  name="city"
+                />
               </div>
-              <div class="col-md-4 mb-3">
-                <div class="input-group mb-3">
-                  <input
-                    type="text"
-                    id="conc"
-                    class="form-control"
-                    placeholder="Enter the Concentration"
-                    aria-label="Enter the Concentration"
-                    aria-describedby="conc"
-                  />
-                  <span
-                    class="input-group-text"
-                    id="conc"
-                    style="border: 1px solid black"
-                    >&micro;g/m<sup>3</sup></span
+              <div class="text-center mb-3">
+                <div class="btn-group">
+                  <button
+                    type="submit"
+                    value="city-calculate"
+                    name="city-calculate"
+                    class="btn btn-primary city-calculate"
                   >
+                    Submit
+                  </button>
+                  <button
+                    type="reset"
+                    value="reset"
+                    name="reset"
+                    class="btn btn-primary reset-btn"
+                  >
+                    Reset
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="text-center mb-3">
-              <div class="btn-group">
-                <button
-                  type="submit"
-                  value="calculate"
-                  name="calculate"
-                  class="btn btn-primary calculate"
-                >
-                  Calculate
-                </button>
-                <button
-                  type="reset"
-                  value="reset"
-                  name="reset"
-                  class="btn btn-primary reset-btn"
-                >
-                  Reset
-                </button>
-              </div>
-            </div>
-          </form>
-          <a href="city.html">
-            <button type="submit" class="btn btn-primary city-btn mb-3">
-              Enter a city
-            </button></a
-          >
-        </div>
+          </div>
+        </form>
         <div class="aqi-table p-3 mb-3">
-          <h2 class="text-center">Pollutant AQI</h2>
+          <h2 class="text-center" id="city-name"></h2>
           <table class="table">
             <thead>
               <tr>
                 <th scope="col">Pollutant</th>
-                <th scope="col">Concentration</th>
                 <th scope="col">AQI</th>
               </tr>
             </thead>
@@ -172,6 +145,6 @@
       integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
       crossorigin="anonymous"
     ></script>
-    <script src="app.js"></script>
+    <script src="city.js"></script>
   </body>
 </html>

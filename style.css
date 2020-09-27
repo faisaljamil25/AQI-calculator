@@ -26,3 +26,6 @@ label {
 .aqi-table {
   display: none;
 }
+.container a {
+  text-align: center;
+}
