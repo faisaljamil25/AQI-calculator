@@ -8,6 +8,7 @@ const cautionary = document.querySelector("#cautionary-statements");
 const pollutantList = document.querySelector(".pollutant-list")
 const aqiTable = document.querySelector(".aqi-table")
 const resetBtn = document.querySelector(".reset-btn")
+const nearBtn = document.querySelector(".near-btn")
 const cityName = document.querySelector("#city-name")
 let pollutants;
 
@@ -21,11 +22,15 @@ function capital_letter(str) {
 async function cityAqi(url) {
     const response = await fetch(url);
     var data = await response.json();
-    console.log(data);
     if (data.status === "ok") {
         const aqi = data.data.aqi
         if (aqi) {
-            cityName.innerText = capital_letter(city.value)
+            if (city.value === "") {
+                cityName.innerText = data.data.city.name
+            } else {
+
+                cityName.innerText = capital_letter(city.value)
+            }
             pollutants = data.data.iaqi
             addPollutant(pollutants)
             aqiResult.style.color = 'black'
@@ -57,6 +62,13 @@ submit.addEventListener("click", function (event) {
     } else {
         alert("Enter name of the City")
     }
+})
+
+nearBtn.addEventListener("click", function (event) {
+    event.preventDefault()
+    city.value = ""
+    const url = `https://api.waqi.info/feed/here/?token=ffbaaf62c5629e2066224b39aa5488adcec16ed6`
+    cityAqi(url)
 })
 
 
